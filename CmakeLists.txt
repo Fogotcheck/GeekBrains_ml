@@ -1,12 +1,15 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.26.4)
 project(GeekBrains_ML VERSION 0.1.0 LANGUAGES CXX)
 
 set(MainHdr ./main/main.h)
 set(MainSrc ./main/main.cpp)
 
-set(Warnings "-Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wsign-compare -Wmissing-declarations -Wunused")
+#set(Warnings "-Wall -Wextra -Wshadow -Wpointer-arith -Wcast-align -Wsign-compare -Wmissing-declarations -Wunused")
 set(cFlags "-std=c++17 ${Warnings}")
 set(CMAKE_CXX_FLAGS ${cFlags})
 message("cflag::${CMAKE_CXX_FLAGS}")
 
 add_executable(GeekBrains_ML ${MainHdr} ${MainSrc})
+
+target_link_libraries(GeekBrains_ML myLibs)
+add_subdirectory(inc)
